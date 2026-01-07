@@ -76,7 +76,7 @@ blockquote p {
 pre {
     margin-bottom: 1ch;
     padding: 1ch;
-    background-color: black;
+    background-color: var(--text-color);
     color: var(--bg-color);
     border-radius: 4px;
     overflow-x: auto;
@@ -89,11 +89,13 @@ pre {
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
 
-code {
+code:not(pre code) {
+    font-size: 0.85em;
     color: var(--bg-color);
-    background-color: black;
+    background-color: var(--text-color);
     border-radius: 4px;
     font-family: var(--font-family);
+    padding: 0.4ch;
 }
 
 .section {

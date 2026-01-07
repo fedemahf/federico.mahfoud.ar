@@ -1,15 +1,27 @@
 :root {
-    --bg-color: #f1f1f1;
-    --text-color: #333;
-    --link-color: #0000EE;
+    color-scheme: light dark;
+    --bg-color: #f6f7f8;
+    --text-color: #2f3234;
+    --link-color: #3a6fc2;
+    --visited-color: #6b5fa7;
     --gray-accent-color: #dedede;
     --font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #181c20;
+    --text-color: #e1e2e3;
+    --link-color: #7ca8df;
+    --visited-color: #9a94d0;
+    --gray-accent-color: #252a30;
+  }
 }
 
 body {
     margin: auto;
     padding: 0ch 1ch;
-    max-width: 60ch;
+    max-width: 75ch;
     background-color: var(--bg-color);
     color: var(--text-color);
 }
