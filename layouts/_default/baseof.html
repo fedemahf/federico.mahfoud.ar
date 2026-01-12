@@ -13,8 +13,12 @@
     {{ end }}
     {{ template "_internal/opengraph.html" . }}
     {{ block "styles" . }}
-        <link rel="stylesheet" href="/preflight.css">
-        <link rel="stylesheet" href="/main.css">
+      {{ $files := slice "preflight.css" "main.css" }}
+      {{ range $files }}
+        {{ with resources.Get . | minify | fingerprint }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+        {{ end }}
+      {{ end }}
     {{ end }}
     {{ block "seo" . }}
     {{ end }}

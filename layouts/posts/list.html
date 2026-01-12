@@ -1,7 +1,10 @@
 {{ define "styles" }}
-<link rel="stylesheet" href="/preflight.css">
-<link rel="stylesheet" href="/main.css">
-<link rel="stylesheet" href="/posts.css">
+  {{ $files := slice "preflight.css" "main.css" "posts.css" }}
+  {{ range $files }}
+    {{ with resources.Get . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ define "main" }}

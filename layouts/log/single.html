@@ -8,9 +8,12 @@
 {{ end }}
 
 {{ define "styles" }}
-<link rel="stylesheet" href="/preflight.css">
-<link rel="stylesheet" href="/main.css">
-<link rel="stylesheet" href="/post.css">
+  {{ $files := slice "preflight.css" "main.css" "post.css" }}
+  {{ range $files }}
+    {{ with resources.Get . | minify | fingerprint }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{ define "header" }}
