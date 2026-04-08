@@ -1,3 +1,9 @@
+---
+description: Personal website with my blog and contact links.
+date: 2026-04-08
+author: Federico Mahfoud
+---
+
 hello there!
 
 i'm Fede -- SWE & DevOps from Argentina
